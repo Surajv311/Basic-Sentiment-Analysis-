@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>task1</title>
+<title>notebook</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,12 +13077,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-1:-Introduction">Task 1: Introduction<a class="anchor-link" href="#Task-1:-Introduction">&#182;</a></h2><p>Welcome to <strong>Sentiment Analysis with Keras and TensorFlow</strong>.</p>
-<p><img src="images/basic_sentiment_analysis.png" alt="Sentiment Analysis"></p>
-<h2 id="Task-2:-The-IMDB-Reviews-Dataset">Task 2: The IMDB Reviews Dataset<a class="anchor-link" href="#Task-2:-The-IMDB-Reviews-Dataset">&#182;</a></h2><hr>
-<p>Note: If you are starting the notebook from this task, you can run cells from all previous tasks in the kernel by going to the top menu and then selecting <strong>Kernel &gt; Restart and Run All</strong></p>
-<hr>
-
+<h3 id="Sentiment-Analysis-with-Keras-and-TensorFlow">Sentiment Analysis with Keras and TensorFlow<a class="anchor-link" href="#Sentiment-Analysis-with-Keras-and-TensorFlow">&#182;</a></h3><h4 id="using-the-IMDB-Reviews-Dataset">using the IMDB Reviews Dataset<a class="anchor-link" href="#using-the-IMDB-Reviews-Dataset">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13091,8 +13086,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.keras.datasets</span> <span class="kn">import</span> <span class="n">imdb</span> 
-<span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">D</span><span class="p">:</span>\<span class="n">zzCoursera</span> <span class="n">proj</span>\<span class="n">Basic</span> <span class="n">Sentiment</span> <span class="n">Analysis</span>
 </pre></div>
 
     </div>
@@ -13109,8 +13103,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/imdb.npz
-17465344/17464789 [==============================] - 69s 4us/step
+<pre>D:\zzCoursera proj\Basic Sentiment Analysis
 </pre>
 </div>
 </div>
@@ -13122,6 +13115,20 @@ div#notebook {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.keras.datasets</span> <span class="kn">import</span> <span class="n">imdb</span> 
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 0 represents negative review and 1 represents positive review </span>
@@ -13152,7 +13159,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -13183,7 +13190,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span><span class="s1">&#39;Positive&#39;</span><span class="p">]</span>
@@ -13196,7 +13203,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_index</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">get_word_index</span><span class="p">()</span> <span class="c1"># a dictionary with key value pairs . To get the words used in review </span>
@@ -13229,16 +13236,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-3:-Decoding-the-Reviews">Task 3: Decoding the Reviews<a class="anchor-link" href="#Task-3:-Decoding-the-Reviews">&#182;</a></h2><hr>
-<p>Note: If you are starting the notebook from this task, you can run cells from all previous tasks in the kernel by going to the top menu and then selecting <strong>Kernel &gt; Restart and Run All</strong></p>
-<hr>
-
+<h3 id="Decoding-the-Reviews">Decoding the Reviews<a class="anchor-link" href="#Decoding-the-Reviews">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">reverse_word_index</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">value</span><span class="p">,</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
@@ -13258,7 +13262,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">decode</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#decoding the first training example in the datset </span>
@@ -13274,7 +13278,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13291,7 +13295,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now our reviews might be of a different size and shape </span>
@@ -13332,16 +13336,13 @@ Length of 2nd test example: 260
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-4:-Padding-the-Examples">Task 4: Padding the Examples<a class="anchor-link" href="#Task-4:-Padding-the-Examples">&#182;</a></h2><hr>
-<p>Note: If you are starting the notebook from this task, you can run cells from all previous tasks in the kernel by going to the top menu and then selecting <strong>Kernel &gt; Restart and Run All</strong></p>
-<hr>
-
+<h3 id="Padding-the-Examples">Padding the Examples<a class="anchor-link" href="#Padding-the-Examples">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we would not include words like &#39;the&#39;, &#39;a&#39;... in the neural network</span>
@@ -13359,7 +13360,7 @@ Length of 2nd test example: 260
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13376,7 +13377,7 @@ Length of 2nd test example: 260
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
@@ -13391,7 +13392,7 @@ Length of 2nd test example: 260
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">show_len</span><span class="p">()</span>
@@ -13425,7 +13426,7 @@ Length of 2nd test example: 256
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">decode</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -13442,7 +13443,7 @@ Length of 2nd test example: 256
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13460,23 +13461,13 @@ Length of 2nd test example: 256
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-5:-Word-Embeddings">Task 5: Word Embeddings<a class="anchor-link" href="#Task-5:-Word-Embeddings">&#182;</a></h2><hr>
-<p>Note: If you are starting the notebook from this task, you can run cells from all previous tasks in the kernel by going to the top menu and then selecting <strong>Kernel &gt; Restart and Run All</strong></p>
-<hr>
-<p>Word Embeddings:</p>
-<p><img src="images/word_embeddings.png" alt="Word Embeddings"></p>
-<p>Feature Vectors:</p>
-<p><img src="images/embeddings.png" alt="Learned Embeddings"></p>
-<h2 id="Task-6:-Creating-and-Training-the-Model">Task 6: Creating and Training the Model<a class="anchor-link" href="#Task-6:-Creating-and-Training-the-Model">&#182;</a></h2><hr>
-<p>Note: If you are starting the notebook from this task, you can run cells from all previous tasks in the kernel by going to the top menu and then selecting <strong>Kernel &gt; Restart and Run All</strong></p>
-<hr>
-
+<h3 id="Word-Embeddings-and-Creating-and-Training-the-Model">Word Embeddings and Creating and Training the Model<a class="anchor-link" href="#Word-Embeddings-and-Creating-and-Training-the-Model">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
@@ -13515,17 +13506,17 @@ Length of 2nd test example: 256
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: &#34;sequential_1&#34;
+<pre>Model: &#34;sequential&#34;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding_2 (Embedding)      (None, None, 16)          160000    
+embedding (Embedding)        (None, None, 16)          160000    
 _________________________________________________________________
-global_average_pooling1d_2 ( (None, 16)                0         
+global_average_pooling1d (Gl (None, 16)                0         
 _________________________________________________________________
-dense_4 (Dense)              (None, 16)                272       
+dense (Dense)                (None, 16)                272       
 _________________________________________________________________
-dense_5 (Dense)              (None, 1)                 17        
+dense_1 (Dense)              (None, 1)                 17        
 =================================================================
 Total params: 160,289
 Trainable params: 160,289
@@ -13541,7 +13532,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now lets train the model</span>
@@ -13585,16 +13576,13 @@ _________________________________________________________________
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-7:-Predictions-and-Evaluation">Task 7: Predictions and Evaluation<a class="anchor-link" href="#Task-7:-Predictions-and-Evaluation">&#182;</a></h2><hr>
-<p>Note: If you are starting the notebook from this task, you can run cells from all previous tasks in the kernel by going to the top menu and then selecting <strong>Kernel &gt; Restart and Run All</strong></p>
-<hr>
-
+<h3 id="predictions-and-evaluation">predictions and evaluation<a class="anchor-link" href="#predictions-and-evaluation">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
@@ -13611,37 +13599,10 @@ _________________________________________________________________
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-36-107bc791f36a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">      3</span> get_ipython<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>run_line_magic<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;matplotlib&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;inline &#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      4</span> 
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 5</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>plot<span class="ansi-yellow-intense-fg ansi-bold">(</span>range<span class="ansi-yellow-intense-fg ansi-bold">(</span>E<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> h<span class="ansi-yellow-intense-fg ansi-bold">.</span>history<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;acc&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> label <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;Training&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      6</span> plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>plot<span class="ansi-yellow-intense-fg ansi-bold">(</span>range<span class="ansi-yellow-intense-fg ansi-bold">(</span>E<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> h<span class="ansi-yellow-intense-fg ansi-bold">.</span>history<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;val_acc&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> label <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;Validation&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      7</span> plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>legend<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">KeyError</span>: &#39;acc&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss</span> <span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span> <span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -13662,8 +13623,8 @@ _________________________________________________________________
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>25000/25000 [==============================] - 1s 22us/sample - loss: 0.8048 - accuracy: 0.8440
-Test set accuracy: 84.39599871635437
+<pre>25000/25000 [==============================] - 1s 24us/sample - loss: 0.9664 - accuracy: 0.8423
+Test set accuracy: 84.23200249671936
 </pre>
 </div>
 </div>
@@ -13674,7 +13635,7 @@ Test set accuracy: 84.39599871635437
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
@@ -13707,7 +13668,7 @@ Test set accuracy: 84.39599871635437
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">decode</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -13723,7 +13684,7 @@ Test set accuracy: 84.39599871635437
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
