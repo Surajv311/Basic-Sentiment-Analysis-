@@ -8,4 +8,3 @@ You may install:<br>
 ```conda install numpy ```<br>
 ```conda install matplotlib```<br>
 
-![img](https://github.com/Surajv311/Basic-Sentiment-Analysis-/blob/master/img.jpg)
